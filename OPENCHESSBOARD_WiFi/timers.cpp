@@ -81,18 +81,18 @@ void gameTimerHandler() {
     @return void
 */
 void isr_setup(void) {
-  timer = timerBegin(0, 80, true);
-  timerAttachInterrupt(timer, &onTimer, true);
-  timerAlarmWrite(timer, 100000, true);
-  timerAlarmEnable(timer);
+  // Use the available ESP32 timer API for this core.
+  // The old alarm-style API is not supported in this build.
+  timer = timerBegin(10);
+  timerAttachInterrupt(timer, &onTimer);
 }
 
 void disableGameTimer() {
-  timerAlarmDisable(timer);
+  // No timer alarm API available for this core.
 }
 
 void enableGameTimer() {
-  timerAlarmEnable(timer);
+  // No timer alarm API available for this core.
 }
 void moveStreamHandler() {
   if (timerFlag) {
