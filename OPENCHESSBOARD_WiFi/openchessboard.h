@@ -20,7 +20,7 @@
 #include <ArduinoJson.h>
 
 // Debug Settings
-//#define MANUAL_MOVE_INPUT
+#define MANUAL_MOVE_INPUT
 //#define PLUG_AT_TOP // not fully supported yet
 #define DEBUG true  
 #define DEBUG_SERIAL if(DEBUG)Serial
